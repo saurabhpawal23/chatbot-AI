@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Market Research Prompt</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Ask a Market Research Question</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <textarea name="query" placeholder="Enter your question here..." required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        {% if response %}
+            <div class="response">
+                <h2>Response</h2>
+                <p>{{ response }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
